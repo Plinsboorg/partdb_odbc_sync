@@ -83,6 +83,7 @@ def api_get(server_url, token, endpoint):
 
 def sanitize_column_name(name):
     """Convert a string to a valid SQLite column name."""
+    name = name.lower()
     name = name.replace("/", "_").replace("\\", "_").replace("-", "_")
     name = name.replace(" ", "_")
     name = "".join(c if c.isalnum() or c == "_" else "_" for c in name)
